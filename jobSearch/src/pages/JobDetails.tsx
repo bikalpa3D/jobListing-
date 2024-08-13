@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useJob } from "../context/JobContext";
 
 const JobDetails = () => {
-  return (
-    <div>JobDetails</div>
-  )
-}
+  const { jId } = useParams();
+  const { fetchData } = useJob([jId]);
 
-export default JobDetails
+  fetchData("/job-details", {
+    job_id: jId,
+  });
+
+  return <div>JobDetails</div>;
+};
+
+export default JobDetails;

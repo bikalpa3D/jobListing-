@@ -6,6 +6,7 @@ import "./App.css";
 import Jobs from "./pages/Jobs";
 import JobDetails from "./pages/JobDetails";
 import NotFound from "./pages/NotFound";
+import EstimatedSalary from "./pages/EstimatedSalary";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="jobs" element={<Jobs />} />
           <Route path="jobs/:jId" element={<JobDetails />} />
+          <Route path="salary" element={<EstimatedSalary/>} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
