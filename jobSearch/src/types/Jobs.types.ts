@@ -17,3 +17,7 @@ type JobHighLights = {
   Responsibilities: string[];
   Benefits: string[];
 };
+
+interface ChildProps {
+  children: React.ReactNode;
+}

@@ -33,7 +33,7 @@ function useFetchApi(
       console.log(res.data.data);
       setJobs(res?.data?.data);
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setError(true);
     } finally {
       setLoading(false);

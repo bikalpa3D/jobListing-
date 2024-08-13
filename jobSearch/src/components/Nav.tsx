@@ -5,7 +5,7 @@ function Nav() {
   return (
     <nav className="h-12 w-full flex justify-between items-center bg-green-600 ">
       <div className="flex w-32 ml-4 font-bold text-lg">Logo</div>
-      <div className="flex gap-5 w-64 ">
+      <div className="flex gap-5 w-80 ">
         <Link to={"/"}>
           <h5 className="text-md font-semibold">Home</h5>
         </Link>
@@ -14,6 +14,9 @@ function Nav() {
         </Link>
         <Link to={"/salary"}>
           <h5 className="text-md font-semibold">Estimate Salery</h5>
+        </Link>
+        <Link to={"/favourite"}>
+          <h5 className="text-md font-semibold">Favourite</h5>
         </Link>
       </div>
     </nav>
