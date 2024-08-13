@@ -1,13 +1,17 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Data } from "../types/Jobs.types";
 
 export const BaseUrl = "https://jsearch.p.rapidapi.com/search";
 
-
-function useFetchApi(dep:string){
-const [jobs, setJobs] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(false);
+function useFetchApi(
+  endpoint: string,
+  query: object,
+  deps: React.DependencyList
+) {
+  const [jobs, setJobs] = useState<Data[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
 
   const fetchData = async (endpoint: string, query: object) => {
     const options = {
@@ -21,24 +25,26 @@ const [error, setError] = useState(false);
         "x-rapidapi-host": import.meta.env.VITE_RAPIDAPI_HOST as string,
       },
     };
-  
+
     try {
       setLoading(true);
       const res = await axios.request(options);
-      
+
       console.log(res.data.data);
       setJobs(res?.data?.data);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       setError(true);
-      console.error(error);
-    }finally{
+    } finally {
       setLoading(false);
+      setError(false);
     }
   };
 
-  return {jobs, loading,error, fetchData };
-  
+  useEffect(() => {
+    fetchData(endpoint, query);
+  }, deps);
+  return { jobs, loading, error };
 }
 
 export default useFetchApi;

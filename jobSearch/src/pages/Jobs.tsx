@@ -1,12 +1,11 @@
-import React from "react";
-import { Data } from "../context/JobContext";
-import { useJob } from "../context/JobContext";
-import { Link } from "react-router-dom";
+import useFetchApi from "../hooks/fetchApis";
+import { Data } from "../types/Jobs.types";
 import Search from "../components/Search";
 import JobCard from "../components/JobCard";
 
 const Jobs = () => {
-  const { jobs, loading, error, fetchData } = useJob();
+  const { jobs, loading, error } = useFetchApi("search", { query: "Node js developer" },[]);
+
   return (
     <div>
       <h1>Jobs</h1>
@@ -16,9 +15,11 @@ const Jobs = () => {
       <Search />
 
       <div className="container mx-auto flex gap-4 flex-wrap my-5">
-        {jobs.map((job: Data) => (
-          <JobCard key={job.job_id} job={job} />
-        ))}
+        {jobs ? (
+          jobs?.map((job: Data) => <JobCard key={job.job_id} job={job} />)
+        ) : (
+          <h1>Search for Jobs to get Started</h1>
+        )}
       </div>
     </div>
   );

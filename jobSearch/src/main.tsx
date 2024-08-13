@@ -3,14 +3,11 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App.tsx";
 import "./index.css";
-import { JobContextProvider } from "./context/JobContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <JobContextProvider>
-      <Router>
-        <App />
-      </Router>
-    </JobContextProvider>
+    <Router>
+      <App />
+    </Router>
   </StrictMode>
 );

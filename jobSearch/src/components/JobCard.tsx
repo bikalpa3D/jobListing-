@@ -1,6 +1,5 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
-const JobCard = ({job}:Data) => {
+const JobCard = ({job}:any) => {
   return (
     <div
     className="border rounded-lg border-sky-500 p-3 h-64 w-[350px]"
