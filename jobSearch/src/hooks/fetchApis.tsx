@@ -11,7 +11,7 @@ function useFetchApi(
 ) {
   const [jobs, setJobs] = useState<Data[] | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const fetchData = async (endpoint: string, query: object) => {
     const options = {
@@ -34,10 +34,9 @@ function useFetchApi(
       setJobs(res?.data?.data);
       setLoading(false);
     } catch (error: any) {
-      setError(true);
+      setError(error.message);
     } finally {
       setLoading(false);
-      setError(false);
     }
   };
 

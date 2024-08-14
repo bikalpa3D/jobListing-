@@ -6,7 +6,7 @@ export type JobContextType = {
   location: string;
   handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleLocationChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: React.FormEvent) => void;
+ 
 };
 
 const JobContext = createContext<JobContextType | undefined>(undefined);
@@ -23,10 +23,7 @@ export function JobContextProvider({ children }: ChildProps) {
     setLocation(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Trigger your search logic here
-  };
+
 
   return (
     <JobContext.Provider
@@ -35,7 +32,7 @@ export function JobContextProvider({ children }: ChildProps) {
         location,
         handleLocationChange,
         handleSearchChange,
-        handleSubmit,
+        
       }}
     >
       {children}

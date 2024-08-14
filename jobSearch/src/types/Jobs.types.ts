@@ -18,6 +18,6 @@ type JobHighLights = {
   Benefits: string[];
 };
 
-interface ChildProps {
+export interface ChildProps {
   children: React.ReactNode;
 }

@@ -3,12 +3,12 @@ import { useJobs } from "../context/JobContext"; // Assuming you have the contex
 interface SearchProps {
   handleSubmit: (e: React.FormEvent) => void;
 }
-const Search: React.FC<SearchProps> = ({ handelSubmit }) => {
+const Search: React.FC<SearchProps> = ({ handleSubmit }) => {
   const { searchQuery, location, handleLocationChange, handleSearchChange } =
     useJobs();
 
   return (
-    <form className="max-w-md mx-auto" onSubmit={handelSubmit}>
+    <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
       <div className="flex gap-4 items-center">
         <div className="relative flex-1">
           <input

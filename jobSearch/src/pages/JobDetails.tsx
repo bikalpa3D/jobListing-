@@ -25,7 +25,7 @@ const JobDetails = () => {
           jobs?.map((job) => (
             <div key={job.job_id}>
               <h1 className="text-2xl font-bold underline md:underline-offset-4 mb-4">
-                {job.job_title}
+                {job.job_title} 
               </h1>
               <h3 className="text-lg font-semibold mb-4">
                 {job.employer_name}

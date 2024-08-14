@@ -17,6 +17,9 @@ function App() {
           <Route path="jobs" element={<Jobs />} />
           <Route path="jobs/:jId" element={<JobDetails />} />
           <Route path="salary" element={<EstimatedSalary/>} />
+          <Route path="favourite" element={<EstimatedSalary/>} />
+
+          
 
           <Route path="*" element={<NotFound />} />
         </Route>
